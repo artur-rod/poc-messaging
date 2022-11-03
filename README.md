@@ -32,8 +32,8 @@ Iniciando o projeto, respeitando os pré-requisitos descritos logo abaixo, você
 ### Pré-requisitos
 
 - Docker
-- Ambiente no MongoDB Atlas configurado (<a name = "about" href="https://www.mongodb.com/pt-br">Configure MongoDB aqui</a>)
-- Instância no CloudAMQP configurado (<a name = "about" href="https://www.cloudamqp.com/docs/index.html">Configure CloudAMQP Aqui</a>)
+- Ambiente no MongoDB Atlas configurado (<a name = "about" href="https://www.mongodb.com/pt-br" target="_blank">Configure MongoDB aqui</a>)
+- Instância no CloudAMQP configurado (<a name = "about" href="https://www.cloudamqp.com/docs/index.html" target="_blank">Configure CloudAMQP Aqui</a>)
 
 ### Instalação
 
@@ -64,7 +64,7 @@ Após isso, verifique o terminal do Docker Desktop para ver se tudo está rodand
 
 ## Funcionamento <a name = "usage"></a>
 
-Você pode acessar a collection criada no Postman para fazer as requisições no link: <a name = "about" href="https://www.getpostman.com/collections/86cd0c2ea50236b3a8e4">Collection Postman</a>
+Você pode acessar a collection criada no Postman para fazer as requisições no link: <a name = "about" href="https://www.getpostman.com/collections/86cd0c2ea50236b3a8e4" target="_blank">Collection Postman</a>
 Ou copie e cole: `https://www.getpostman.com/collections/86cd0c2ea50236b3a8e4`
 
 As requisições para criação de usuários seguem o seguinte padrão:
