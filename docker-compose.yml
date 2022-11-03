@@ -1,0 +1,51 @@
+services:
+  api:
+    container_name: express-api
+    build: ./express-api
+    ports:
+      - 3000:3000
+    volumes:
+      - ./express-api:/home/express-api
+    environment:
+      - DATABASE_URI=${DATABASE_URI}
+      - RMQ_ORDERS_QUEUE=${RMQ_ORDERS_QUEUE}
+      - RMQ_URI=${RMQ_URI}
+
+  ms-newsletter:
+    container_name: ms-newsletter
+    build: ./microservice
+    volumes:
+      - ./microservice:/home/microservice
+    environment:
+      - DATABASE_URI=${DATABASE_URI}
+      - RMQ_URI=${RMQ_URI}
+      - RMQ_NEWSLETTER_QUEUE=${RMQ_NEWSLETTER_QUEUE}
+      - SENDGRID_API_KEY=${SENDGRID_API_KEY}
+      - SENDGRID_MAIL_SENDER=${SENDGRID_MAIL_SENDER}
+    command: npm run start:newsletter
+
+  ms-orders:
+    container_name: ms-orders
+    build: ./microservice
+    volumes:
+      - ./microservice:/home/microservice
+    environment:
+      - DATABASE_URI=${DATABASE_URI}
+      - RMQ_ORDERS_QUEUE=${RMQ_ORDERS_QUEUE}
+      - RMQ_URI=${RMQ_URI}
+      - SENDGRID_API_KEY=${SENDGRID_API_KEY}
+      - SENDGRID_MAIL_SENDER=${SENDGRID_MAIL_SENDER}
+    command: npm run start:rabbitmq
+
+  ms-users:
+    container_name: ms-users
+    build: ./microservice
+    volumes:
+      - ./microservice:/home/microservice
+    environment:
+      - DATABASE_URI=${DATABASE_URI}
+      - RMQ_URI=${RMQ_URI}
+      - RMQ_USERS_QUEUE=${RMQ_USERS_QUEUE}
+      - SENDGRID_API_KEY=${SENDGRID_API_KEY}
+      - SENDGRID_MAIL_SENDER=${SENDGRID_MAIL_SENDER}
+    command: npm run start:users

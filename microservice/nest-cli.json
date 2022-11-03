@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/microservice/src",
+  "monorepo": true,
+  "root": "apps/microservice",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/newsletter/tsconfig.app.json"
+  },
+  "projects": {
+    "newsletter": {
+      "type": "application",
+      "root": "apps/newsletter",
+      "entryFile": "main",
+      "sourceRoot": "apps/newsletter/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/newsletter/tsconfig.app.json"
+      }
+    },
+    "mailer": {
+      "type": "library",
+      "root": "libs/mailer",
+      "entryFile": "index",
+      "sourceRoot": "libs/mailer/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/mailer/tsconfig.lib.json"
+      }
+    },
+    "rabbitmq": {
+      "type": "application",
+      "root": "apps/rabbitmq",
+      "entryFile": "main",
+      "sourceRoot": "apps/rabbitmq/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/rabbitmq/tsconfig.app.json"
+      }
+    },
+    "users": {
+      "type": "application",
+      "root": "apps/users",
+      "entryFile": "main",
+      "sourceRoot": "apps/users/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/users/tsconfig.app.json"
+      }
+    }
+  }
+}
